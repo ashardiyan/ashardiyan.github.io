@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Hacker Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+    <script>
+        // Force scroll to top on page load/refresh
+        window.onload = function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
+        }
+
+        // Prevent browser's scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Additional force scroll on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    if (menuToggle) {
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Force scroll on beforeunload
+        window.addEventListener('beforeunload', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="#hero" style="text-decoration: none; color: inherit; cursor: pointer;">root@hacker:~$</a></div>
+            <div id="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Whoami</a></li>
+                <li><a href="#skills" class="nav-link">Skillset</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#pdfs" class="nav-link">PDFs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="typing-effect">root@hacker:~$ Welcome to my network</h1>
+            <p class="hero-subtitle">Cybersecurity | Pentesting | Ethical Hacking</p>
+            <a href="#projects" class="cta-button">View Projects</a>
+        </div>
+        <div class="console-output" id="console-output"></div>
+    </section>
+
+    <section id="about">
+        <h2>Whoami</h2>
+        <p>I'm an ethical hacker specializing in penetration testing, bug bounties, and cybersecurity research.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skillset</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Certifications</h3>
+                <ul>
+                    <li><i class="fas fa-certificate"></i> Certified Ethical Hacker (CEH)</li>
+                    <li><i class="fas fa-graduation-cap"></i> BS in Cyber Security</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li><i class="fas fa-shield-alt"></i> Penetration Testing</li>
+                    <li><i class="fas fa-bug"></i> Vulnerability Assessment</li>
+                    <li><i class="fas fa-code"></i> Web Application Security</li>
+                    <li><i class="fas fa-network-wired"></i> Network Security</li>
+                    <li><i class="fas fa-terminal"></i> Command Line Proficiency</li>
+                    <li><i class="fas fa-lock"></i> Cryptography</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>1. Advanced Screen Protection Suite (ASPS)</h3>
+            <p>A comprehensive security tool for preventing unauthorized screen captures and remote access threats.</p>
+            <div class="project-links">
+                <a href="https://github.com/ashardian/ASPS" class="project-button" target="_blank">
+                    <i class="fab fa-github"></i> View Project
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>2. Network Vulnerability Scanner (Still in development)</h3>
+            <p>Automated tool for detecting network vulnerabilities and security weaknesses.</p>
+            <div class="project-links">
+                <a href="#" class="project-button" target="_blank">
+                    <i class="fab fa-github"></i> View Project
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>3. Wireless Security Toolkit (Still in development)</h3>
+            <p>Collection of tools for wireless network security assessment and monitoring.</p>
+            <div class="project-links">
+                <a href="#" class="project-button" target="_blank">
+                    <i class="fab fa-github"></i> View Project
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>4. Web Application Firewall (Still in development)</h3>
+            <p>Custom WAF implementation for protecting web applications from common attacks.</p>
+            <div class="project-links">
+                <a href="#" class="project-button" target="_blank">
+                    <i class="fab fa-github"></i> View Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pdfs">
+        <h2>PDF Collection</h2>
+        <p>You can explore my curated collection of cybersecurity PDFs and resources <a href="https://terabox.com/s/1JSOQKiekhf-M2uaiAj8RBA" target="_blank" class="cta-button"><i class="fas fa-file-pdf"></i> Open PDFs</a></p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3><i class="fas fa-terminal"></i> Get in Touch</h3>
+                <p>Ready to collaborate on cybersecurity projects or have questions about my work? Reach out through any of these channels:</p>
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-social" style="text-align: center; display: flex; justify-content: center; gap: 3rem; margin-bottom: 1.5rem;">
+            <a href="https://github.com/ashardian" target="_blank" class="social-icon">
+                <i class="fab fa-github fa-3x" style="color: var(--primary-color); transition: transform 0.3s ease, color 0.3s ease; display: inline-block;"></i>
+            </a>
+            <a href="https://discord.com/users/xxfrt_01" target="_blank" class="social-icon">
+                <i class="fab fa-discord fa-3x" style="color: var(--primary-color); transition: transform 0.3s ease, color 0.3s ease; display: inline-block;"></i>
+            </a>
+            <a href="mailto:zerodayguardian@onionmail.com" class="social-icon">
+                <i class="fas fa-envelope fa-3x" style="color: var(--primary-color); transition: transform 0.3s ease, color 0.3s ease; display: inline-block;"></i>
+            </a>
+        </div>
+        <style>
+            .social-icon i:hover {
+                transform: scale(1.2) rotate(5deg);
+                color: var(--hover-color);
+                animation: pulse 1s infinite alternate;
+            }
+            
+            @keyframes pulse {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0.8;
+                }
+            }
+        </style>
+        <div class="copyright">
+            <p>&copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> Ethical Hacker Portfolio. All rights reserved. | <span class="terminal-text">root@hacker:~$ exit</span></p>
+        </div>
+    </footer>
+</body>
+
+</html>
